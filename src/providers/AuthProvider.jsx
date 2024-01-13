@@ -5,7 +5,9 @@ import { AuthContext } from "../contexts/AuthContext";
 function AuthProvider({ children }) {
     const navigate = useNavigate();
     const location = useLocation();
-    const [authenticated, setAuthenticated] = useState(false);
+    const [authenticated, setAuthenticated] = useState(JSON.parse(localStorage.getItem("authenticated")) || false);
+
+    console.log(authenticated);
 
     const handleLogin = (username, password) => {
         // Check if username and password are not correct so they can display error messages
@@ -15,6 +17,7 @@ function AuthProvider({ children }) {
         // Set login to true if username and password are correct
         if (username === "uncinc", password === "letmein") {
             setAuthenticated(true);
+            localStorage.setItem("authenticated", true);
 
             let origin = location.state?.from?.pathname || '/';
             if (origin === "/logout") origin = "/";
@@ -24,6 +27,7 @@ function AuthProvider({ children }) {
 
     const handleLogout = () => {
         setAuthenticated(false);
+        localStorage.setItem("authenticated", false);
         navigate("/login");
     };
 
