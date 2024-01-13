@@ -21,11 +21,11 @@ For my internship at Unc Inc, I was given an assignment to determine my level of
 
 <h2 id="usage">🖥️ Usage</h2>
 
-This website is created to examine the level of a frontend developer
+This website is created to examine the level of a frontend developer. You can go through the website & login. After you're logged in you can access the `/dashboard` page. When you log out and try to access the `/dashboard` you'll be redirected to `/login`.
 
 <h2 id="characteristics">✨ Characteristics</h2>
 
-This project is build in Vite with React. It's setup with JavaScript
+This project is build in Vite with React. It's setup with JavaScript. React Router is used for the client-side routing.
 
 <h2 id="installation">📥 Installation</h2>
 
