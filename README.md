@@ -55,6 +55,7 @@ yarn dev --open
 - [Assessment]()
 - [Yarn](https://yarnpkg.com/)
 - [React](https://react.dev/)
+- [React Router](https://reactrouter.com/)
 - [Vercel](https://vercel.com/)
 
 <h2 id="licenses">🪪 Licenses</h2>
