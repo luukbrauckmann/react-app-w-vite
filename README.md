@@ -53,6 +53,7 @@ yarn dev --open
 
 - [Assessment]()
 - [Yarn](https://yarnpkg.com/)
+- [Vite](https://vitejs.dev/)
 - [React](https://react.dev/)
 - [React Router](https://reactrouter.com/)
 - [Vercel](https://vercel.com/)
