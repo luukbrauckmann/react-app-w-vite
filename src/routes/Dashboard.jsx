@@ -6,7 +6,7 @@ function Dashboard() {
             </header>
 
             <div>
-                ...
+                <p>You made it!</p>
             </div>
         </main>
     )

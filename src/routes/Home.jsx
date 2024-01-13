@@ -6,7 +6,7 @@ function Home() {
             </header>
 
             <div>
-                ...
+                <p>Welcome to my Unc Inc Assessment project.</p>
             </div>
         </main>
     )
