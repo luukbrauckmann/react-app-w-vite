@@ -12,3 +12,12 @@ body {
 	height: 100dvh;
 	font-family: sans-serif;
 }
+
+div#root {
+	display: grid;
+	grid-template-columns: min-content auto;
+}
+
+main {
+	padding: 1rem;;
+}

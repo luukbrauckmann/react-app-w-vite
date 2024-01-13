@@ -1,11 +1,13 @@
+import Nav from './components/Nav'
+import { Outlet } from 'react-router-dom'
+
 function App() {
-  return (
-    <main>
-      <header>
-        <h1>Home</h1>
-      </header>
-    </main>
-  )
+    return (
+        <>
+            <Nav />
+            <Outlet />
+        </>
+    )
 }
 
 export default App
