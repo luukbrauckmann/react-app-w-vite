@@ -1,8 +1,8 @@
 
 <h1>
   <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="" alt="Unc Inc" height="100">
-      <img src="" alt="Unc Inc" height="100">
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/luukbrauckmann/react-app-w-vite/assets/47314813/3b22a422-0f19-47a2-a6d7-a99215357953" alt="Unc Inc" height="100">
+      <img src="https://github.com/luukbrauckmann/react-app-w-vite/assets/47314813/bb9d3a96-a8bf-4099-aecd-c8283bd9fcef" alt="Unc Inc" height="100">
     </picture>
 </h1>
 
