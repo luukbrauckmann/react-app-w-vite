@@ -17,11 +17,11 @@
 
 <h2 id="description">ℹ️ Description</h2>
 
-
+For my internship at Unc Inc, I was given an assignment to determine my level of knowledge of React. Hopefully this assignment gives a good idea of how I work and how quickly I aquire up new material. For this assignment I have to take into account the Airbnb coding standards and best practices of React.
 
 <h2 id="usage">🖥️ Usage</h2>
 
-
+This website is created to examine the level of a frontend developer
 
 <h2 id="characteristics">✨ Characteristics</h2>
 
