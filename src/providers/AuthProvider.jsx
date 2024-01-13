@@ -7,12 +7,10 @@ function AuthProvider({ children }) {
     const location = useLocation();
     const [authenticated, setAuthenticated] = useState(JSON.parse(localStorage.getItem("authenticated")) || false);
 
-    console.log(authenticated);
-
     const handleLogin = (username, password) => {
         // Check if username and password are not correct so they can display error messages
-        if (username !== "uncinc") return;
-        if (password !== "letmein") return;
+        // if (username !== "uncinc") setShowUsernameMessage(true)
+        // if (password !== "letmein") setShowPasswordMessage(true)
 
         // Set login to true if username and password are correct
         if (username === "uncinc", password === "letmein") {
@@ -22,7 +20,7 @@ function AuthProvider({ children }) {
             let origin = location.state?.from?.pathname || '/';
             if (origin === "/logout") origin = "/";
             navigate(origin);
-        };
+        }
     };
 
     const handleLogout = () => {
