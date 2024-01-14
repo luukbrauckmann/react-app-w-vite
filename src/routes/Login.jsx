@@ -1,9 +1,11 @@
-import { useState } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { useNavigate, useLocation } from "react-router-dom"
 import { useAuth } from "../hooks/useAuth"
 
 function Login() {
     const { onLogin } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -11,13 +13,26 @@ function Login() {
     const [showUsernameMessage, setShowUsernameMessage] = useState(false);
     const [showPasswordMessage, setShowPasswordMessage] = useState(false);
 
+    // Required to update the DOM when the state changes
+    useEffect(() => { }, [showUsernameMessage, showPasswordMessage]);
+
     /**
      * Handle the login form submission
      * @param {React.FormEventHandler<HTMLFormElement>} event 
      */
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        onLogin(username, password);
+
+        await onLogin(username, password)
+            .then(() => {
+                let origin = location.state?.from?.pathname || '/';
+                if (origin === "/logout") origin = "/";
+                navigate(origin);
+            })
+            .catch((error) => {
+                setShowUsernameMessage(error.showUsernameMessage);
+                setShowPasswordMessage(error.showPasswordMessage);
+            })
     };
 
     return (
@@ -30,14 +45,30 @@ function Login() {
                 <form className="form" onSubmit={handleSubmit}>
                     <div className="form__field">
                         <label htmlFor="username">Username</label>
-                        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} id="username" />
-                        {showUsernameMessage ?? (<small>Username is incorrect</small>)}
+
+                        <input
+                            type="text"
+                            id="username"
+                            autoComplete="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+
+                        {showUsernameMessage && <small>Username is incorrect</small>}
                     </div>
 
                     <div className="form__field">
                         <label htmlFor="password">Password</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} id="password" />
-                        {showPasswordMessage ?? (<small>Password is incorrect</small>)}
+
+                        <input
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+
+                        {showPasswordMessage && <small>Password is incorrect</small>}
                     </div>
 
                     <div className="form__field">

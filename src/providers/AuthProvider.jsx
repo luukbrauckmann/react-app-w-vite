@@ -1,26 +1,26 @@
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
 function AuthProvider({ children }) {
     const navigate = useNavigate();
-    const location = useLocation();
     const [authenticated, setAuthenticated] = useState(JSON.parse(localStorage.getItem("authenticated")) || false);
 
     const handleLogin = (username, password) => {
-        // Check if username and password are not correct so they can display error messages
-        // if (username !== "uncinc") setShowUsernameMessage(true)
-        // if (password !== "letmein") setShowPasswordMessage(true)
-
-        // Set login to true if username and password are correct
-        if (username === "uncinc", password === "letmein") {
-            setAuthenticated(true);
-            localStorage.setItem("authenticated", true);
-
-            let origin = location.state?.from?.pathname || '/';
-            if (origin === "/logout") origin = "/";
-            navigate(origin);
-        }
+        return new Promise((resolve, reject) => {
+            // Set login to true if username and password are correct
+            if (username === "uncinc" && password === "letmein") {
+                setAuthenticated(true);
+                localStorage.setItem("authenticated", true);
+                resolve();
+            } else {
+                // Return error message if username or password are incorrect
+                reject({
+                    showUsernameMessage: username !== "uncinc",
+                    showPasswordMessage: password !== "letmein"
+                });
+            };
+        });
     };
 
     const handleLogout = () => {
